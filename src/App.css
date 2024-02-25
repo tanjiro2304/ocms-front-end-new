@@ -1,0 +1,19 @@
+
+
+body{
+  background-image: url("/src/assets/images/pexels-marvin-ozz-2474661.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin:auto;
+  padding:0px;
+
+}
+
+#root{
+  margin:auto;
+  padding:auto;
+  align-content: center;
+  width:100%;
+  margin-top: 80px;
+}
+

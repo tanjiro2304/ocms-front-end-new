@@ -1,0 +1,14 @@
+.form-text-field {
+    width: 200px;
+    margin:auto;
+    align-self: center;
+}
+
+.submit-button{
+    width: 200px;
+    margin-top:20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
