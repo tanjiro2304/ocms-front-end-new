@@ -46,6 +46,7 @@ const AddMenuItemPage = () => {
           <Button  className='submit-button' variant="contained" color="primary" onClick={onSubmit}>
             Add
           </Button>
+         
         </div>
 
       </div>

@@ -6,7 +6,7 @@ body{
   background-repeat: no-repeat;
   margin:auto;
   padding:0px;
-
+  height:100%;
 }
 
 #root{
@@ -14,6 +14,7 @@ body{
   padding:auto;
   align-content: center;
   width:100%;
+  height:100%;
   margin-top: 80px;
 }
 

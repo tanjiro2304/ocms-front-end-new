@@ -16,6 +16,9 @@ import UserPage from './pages/UserPage'
 import Orderpage from './pages/Orderpage'
 import Cart from './pages/Cart'
 import SubscriptionPage from './pages/SubscriptionPage'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import AboutUs from './pages/AboutUs'
 
 
 function App() {
@@ -24,6 +27,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <Header/>
         <Menubar />
 
         <Routes>
@@ -31,6 +35,7 @@ function App() {
           <Route path="/userpage/cart" element={<Cart/>}></Route>
           <Route path='/user/subscriptionPage' element={<SubscriptionPage/>}/>
           <Route path="/contactus" element={<ContactUs/>}></Route>
+          <Route path="/about" element={<AboutUs/>}></Route>
           <Route path="/userpage" element={<UserPage/>}></Route>
           <Route path="/userpage/orderitem" element={<Orderpage/>}></Route>
           <Route path="/login" element={<LoginPage />}></Route> 
@@ -39,7 +44,9 @@ function App() {
           <Route path="/register" element={<RegisterPage />}></Route>
           <Route path="/admin/addSubscriptionPlan" element={<AddSubscriptionPlan />}></Route>
         </Routes>
+       
       </BrowserRouter>
+      <Footer/>
     </>
   )
 }

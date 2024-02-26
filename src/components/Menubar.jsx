@@ -78,6 +78,12 @@ const Menubar = () => {
                             Home
                         </li>
                         <li
+                            className={activeMenuItem === 'Contact Us' ? 'active' : ''}
+                            onClick={() => handleMenuItemClick('Contact')}
+                        >
+                            Contact Us
+                        </li>
+                        <li
                             className={activeMenuItem === 'About' ? 'active' : ''}
                             onClick={() => handleMenuItemClick('About')}
                         >

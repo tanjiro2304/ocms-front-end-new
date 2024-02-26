@@ -17,8 +17,8 @@ const HomePage = () => {
 
   return (
     <div style={{
-      backgroundColor: 'white', color: 'black', width: '90%', height: '80%',
-      borderRadius: '20px', margin: 'auto', padding: '30px'
+      backgroundColor: 'white', color: 'black', width: '90%', height: '70%',
+      borderRadius: '20px', margin: 'auto', padding: '30px',marginTop:'70px'
     }}>
       <img src="src/assets/images/pexels-chan-walrus-941869.jpg" alt="Not Available" width="100%" height="400px" />
 
