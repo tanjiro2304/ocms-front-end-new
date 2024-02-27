@@ -39,10 +39,7 @@ const AboutUs = () => {
           {/* Add more team members as needed */}
         </ul>
   
-        <h3>Contact Us</h3>
-        <p>If you have any questions or suggestions, feel free to reach out to us. We value your feedback and are committed to enhancing your canteen experience.</p>
-  
-        <p>Contact: [Your Contact Information]</p>
+       
       </div>
   )
 }

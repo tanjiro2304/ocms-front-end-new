@@ -12,33 +12,44 @@ const LoginPage = () => {
         password: "",
     });
 
+    function checkEmptyAttributes(object) {
+        for (const key in object) {
+            if (object.hasOwnProperty(key) && object[key] === '') {
+                alert(`${key} cannot be empty!`);
+                return false; // Stop checking after the first empty attribute is found
+            }
+        }
+        return true; // All attributes are non-empty
+    }
+
 
     const navigate = useNavigate();
     const onLoginClick = () => {
-        request(
-            "POST",
-            "/register/login",
-            {
-                username: user.username,
-                password: user.password
-            }).then(
-                (response) => {
-                    sessionStorage.setItem("userId", response.data.id);
-                    console.log(response.data)
-                    setAuthHeader(response.data.token);
-                    if (response.data.role === 'ADMIN') {
-                        navigate('/admin')
-                    } else {
-                        navigate('/userpage')
-                    }
+        if (checkEmptyAttributes(user)) {
+            request(
+                "POST",
+                "/register/login",
+                {
+                    username: user.username,
+                    password: user.password
+                }).then(
+                    (response) => {
+                        sessionStorage.setItem("userId", response.data.id);
+                        console.log(response.data)
+                        setAuthHeader(response.data.token);
+                        if (response.data.role === 'ADMIN') {
+                            navigate('/admin')
+                        } else {
+                            navigate('/userpage')
+                        }
 
-                }).catch(
-                    (error) => {
-                        setAuthHeader(null);
-                        alert("Invalid username and password")
-                    }
-                );
-
+                    }).catch(
+                        (error) => {
+                            setAuthHeader(null);
+                            alert("Invalid username and password")
+                        }
+                    );
+        }
     }
 
     const onChangeHandle = (e) => {

@@ -17,6 +17,16 @@ const AddSubscriptionPlan = () => {
     validity: '',
   });
 
+  function checkEmptyAttributes(object) {
+    for (const key in object) {
+      if (object.hasOwnProperty(key) && object[key] === '') {
+        alert(`${key} cannot be empty!`);
+        return false; // Stop checking after the first empty attribute is found
+      }
+    }
+    return true; // All attributes are non-empty
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPlanDetails((prevDetails) => ({
@@ -26,24 +36,26 @@ const AddSubscriptionPlan = () => {
   };
 
   const handleSubmit = () => {
-    request(
-      "POST",
-      "/subscriptionPlan/add",
-      planDetails).then(
-      (response) => {
-        alert("Item added successfully in Database.")
-      }).catch(
-      (error) => {
-          setAuthHeader(null);
+    if (checkEmptyAttributes(planDetails)) {
+      request(
+        "POST",
+        "/subscriptionPlan/add",
+        planDetails).then(
+          (response) => {
+            alert("Item added successfully in Database.")
+          }).catch(
+            (error) => {
+              setAuthHeader(null);
 
-      }
-  );
+            }
+          );
+    }
     // You can perform any logic or send the planDetails to the backend here
     console.log('Plan Details Submitted:', planDetails);
   };
 
   return (
-    <Container style={{backgroundColor:'white', padding:'40px', color:'black', borderRadius:'30px'}}>
+    <Container style={{ backgroundColor: 'white', padding: '40px', color: 'black', borderRadius: '30px' }}>
       <Typography variant="h4" align="center" gutterBottom>
         Create a New Plan
       </Typography>
@@ -93,7 +105,7 @@ const AddSubscriptionPlan = () => {
             <Button
               variant="contained"
               color="primary"
-              
+
               onClick={handleSubmit}
             >
               Save Plan

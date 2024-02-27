@@ -24,7 +24,7 @@ const ContactUs = () => {
     return (
         <div style={{
             backgroundColor: 'white', color: 'black', width: '50%', height: '50%',
-            borderRadius: '20px', margin: 'auto', padding: '20px'
+            borderRadius: '20px', margin: 'auto', padding: '20px', marginTop:'80px'
         }}>
 
             <Container maxWidth="md">

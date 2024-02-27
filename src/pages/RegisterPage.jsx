@@ -16,23 +16,36 @@ const RegisterPage = () => {
         account: account
     });
 
-    const onSubmit = () => {
-        user.account = account;
-        console.log(user)
-        request(
-            "POST",
-            "/register/signup",
-            user).then(
-            (response) => {
-                setAuthHeader(response.data.token);
-                navigate('/login')
-
-            }).catch(
-            (error) => {
-                setAuthHeader(null);
-
+    function checkEmptyAttributes(object) {
+        for (const key in object) {
+            if (object.hasOwnProperty(key) && object[key] === '') {
+                alert(`${key} cannot be empty!`);
+                return false; // Stop checking after the first empty attribute is found
             }
-        );
+        }
+        return true; // All attributes are non-empty
+    }
+
+    const onSubmit = () => {
+
+        if (checkEmptyAttributes(user) && checkEmptyAttributes(account)) {
+            user.account = account;
+            console.log(user)
+            request(
+                "POST",
+                "/register/signup",
+                user).then(
+                    (response) => {
+                        setAuthHeader(response.data.token);
+                        navigate('/login')
+
+                    }).catch(
+                        (error) => {
+                            setAuthHeader(null);
+
+                        }
+                    );
+        }
     }
 
     const onChangeHandleUser = (e) => {
@@ -50,8 +63,8 @@ const RegisterPage = () => {
 
     return (
         <div style={{
-            backgroundColor: 'white', color: 'black', width: '50%', height: '750px',
-            borderRadius: '20px', alignSelf:'center', margin: 'auto'
+            backgroundColor: 'white', color: 'black', width: '20%', height: '520px',
+            borderRadius: '20px', alignSelf: 'center', margin: 'auto', marginTop:'80px'
         }}>
             <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', flexDirection: 'column' }}>
                 <h2 style={{ marginTop: '30px', marginLeft: 'auto', marginRight: 'auto' }}>User Registration Page </h2>
