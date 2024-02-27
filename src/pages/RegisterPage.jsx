@@ -2,7 +2,11 @@ import { Button, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { request, setAuthHeader } from '../service/AxiosHelper';
 import '../css/form.css';
+import { useNavigate } from 'react-router-dom';
 const RegisterPage = () => {
+
+    const navigate = useNavigate();
+
     const [account, setAccount] = useState({
         firstName: '',
         lastName: '',
@@ -45,7 +49,11 @@ const RegisterPage = () => {
 
                         }
                     );
+
+                    alert('Registration successful!!!')
+                    navigate('/login')
         }
+
     }
 
     const onChangeHandleUser = (e) => {
@@ -71,7 +79,7 @@ const RegisterPage = () => {
                 <TextField className='form-text-field' name='firstName' value={account.firstName} label="First Name" variant="standard" onChange={onChangeHandleAccount} />
                 <TextField className='form-text-field' name='lastName' value={account.lastName} label="Last Name" variant="standard" onChange={onChangeHandleAccount} />
                 <TextField className='form-text-field' name='username' value={user.username} label="Username" variant="standard" onChange={onChangeHandleUser} />
-                <TextField className='form-text-field' name='password' value={user.password} label="Password" variant="standard" onChange={onChangeHandleUser} />
+                <TextField type='password' className='form-text-field' name='password' value={user.password} label="Password" variant="standard" onChange={onChangeHandleUser} />
                 <TextField className='form-text-field' name='email' value={account.email} label="Email" variant="standard" onChange={onChangeHandleAccount} />
                 <TextField className='form-text-field' name='contactNo' label="Contact No" variant="standard" value={account.contactNo} onChange={onChangeHandleAccount} />
                 <TextField className='form-text-field' name='role' label="Role" variant="standard" value={user.role} onChange={onChangeHandleUser} />

@@ -61,7 +61,8 @@ const LoginPage = () => {
 
     return (
 
-        <div style={{ backgroundColor: 'white', color: 'black', width: '500px', height: '400px', borderRadius: '50px', padding: '10px', margin: 'auto' }}>
+        <div style={{ backgroundColor: 'white', color: 'black', width: '500px', height: '400px', borderRadius: '50px',
+         padding: '10px', margin: 'auto', marginTop:'80px' }}>
             <div className='login' style={{ padding: '70px' }}>
                 <h3 style={{ padding: '0px', margin: '0px' }}>Login Page</h3>
                 <form>
